@@ -1,0 +1,28 @@
+<h3 class="text-center" style="margin: 30px;">Listado de Productos</h3>
+<!-- "table-striped" -> Separa cada registro de la tabla por colores -->
+<!-- "table-hover" -> El registro cambia de color cuando pasamos el ratón por encima -->
+<!-- "align-middle" -> Alinea los elementos verticalmente -->
+<table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Existencias</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productos">
+        <th scope="row">{{ producto.id }}</th>
+        <td>{{ producto.descripcion }}</td>
+        <td>{{ producto.precio }}</td>
+        <td>{{ producto.existencias }}</td>
+        <td>
+            <div class="text-center">
+                <button class="btn btn-warning btn-sm me-3" (click)="irEditarProducto(producto.id)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="eliminarProducto(producto.id)">Eliminar</button>
+            </div>
+        </td>
+        </tr>
+    </table>
